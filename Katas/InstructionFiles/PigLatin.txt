@@ -1,0 +1,16 @@
+﻿In this kata you will write a function that translates English strings into Pig Latin.
+
+To translate to Pig Latin you take the first consonant (or consecutive consonants) of each word, move it to the end and also append 'ay'. 
+If the word starts with a vowel, just append 'way' at the end.
+
+Examples
+You can use these examples to start building your test suite.
+
+    pigLatin('northcoders');
+    // -> 'orthcodersnay'
+    sample('sheffield');
+    // -> 'effieldshay'
+    sample('algorithm');
+    // -> algorithmway
+    sample('keep on coding');
+    // -> 'eepkay onway odingcay'
