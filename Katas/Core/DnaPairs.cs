@@ -6,7 +6,7 @@ namespace Katas.Core
 {
     public class DnaPairs
     {
-        public List<char[]> pairsList;
+        public char[][] pairsArr;
         private readonly Dictionary<char, char> pairMapping = new Dictionary<char, char>()
         {
             { 'G', 'C' },
@@ -17,14 +17,32 @@ namespace Katas.Core
 
         public DnaPairs(string dna)
         {
-            pairsList = new List<char[]>();
+            var pairsList = new List<char[]>();
             if (dna != String.Empty)
             {
-                if (dna == "G")
-                {
-                    pairsList.Add(new char[] { 'G', pairMapping['G'] });
+                char[] charArr = dna.ToCharArray();
+                foreach (char ch in charArr)
+                { 
+                    switch(Char.ToUpper(ch))
+                    { 
+                        case 'G':
+                            pairsList.Add(new char[] { 'G', pairMapping['G'] });
+                            break;
+                        case 'C':
+                            pairsList.Add(new char[] { 'C', pairMapping['C'] });
+                            break;
+                        case 'T':
+                            pairsList.Add(new char[] { 'T', pairMapping['T'] });
+                            break;
+                        case 'A':
+                            pairsList.Add(new char[] { 'A', pairMapping['A'] });
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
+            pairsArr = pairsList.ToArray();
         }
 
     }
