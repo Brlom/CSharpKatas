@@ -9,9 +9,6 @@ namespace Katas.Core
         public int CalculateDivisor(int startingNum)
         {
             int sumDivisibleNums = 0;
-            // we want to get a list of numbers starting with startingNum and working backwards
-            // we want to go through each number in list to check if it/3 or it/5 = int
-            // if divided num is a round number, add to sumTotal
 
             IEnumerable<int> numsBetweenStartingNumAndZero = Enumerable.Range(0, startingNum);
 
