@@ -75,19 +75,23 @@ namespace Testing
             Assert.Equal(expected, actual);
         }
 
-        //[Fact]
-        //public void FoldString_WhenPassedStrWithPunctuation_ShouldReturnFoldedStrWithPunct()
-        //{
-        //    // arrange
-        //    string original = "javascript is cool.";
-        //    FoldString x = new FoldString();
-        //    string expected = "savajtpirc is oclo.";
+        [Fact]
+        public void FoldString_WhenPassedStrWithPunctuation_ShouldReturnFoldedStrWithPunct()
+        {
+            // arrange
+            string original = "javascript is cool.";
+            string original2 = "To javascript, or not to javascript? That is the question.";
+            FoldString x = new FoldString();
+            string expected = "savajtpirc is oclo.";
+            string expected2 = "To savajtpirc, or not to savajtpirc? hTta is the seuqnoit.";
 
-        //    // act
-        //    string actual = x.StringFolder(original);
+            // act
+            string actual = x.StringFolder(original);
+            string actual2 = x.StringFolder(original2);
 
-        //    // assert
-        //    Assert.Equal(expected, actual);
-        //}
+            // assert
+            Assert.Equal(expected, actual);
+            Assert.Equal(expected2, actual2);
+        }
     }
 }

@@ -15,21 +15,25 @@ namespace Katas.Core
                 return str;
             }
 
-            Regex punctuation = new Regex(@"[.,!?]");
-            if (punctuation.IsMatch(str))
-            { 
-            
-            }
-
             string newStr = String.Empty;
             string[] splitStr = str.Split(" ");
 
             foreach (string word in splitStr)
-            { 
-                if (word.Length % 2 == 0)
+            {
+                Regex punctuation = new Regex(@"[.,!?]");
+                string punctuationToAdd = String.Empty;
+                string wordWithoutPunctuation = word;
+
+                if (punctuation.IsMatch(word))
                 {
-                    string firstHalf = word.Substring(0, word.Length / 2);
-                    string secondHalf = word.Substring(word.Length / 2);
+                    punctuationToAdd += word[word.Length - 1];
+                    wordWithoutPunctuation = word.Substring(0, word.Length - 1);
+                }
+                
+                if (wordWithoutPunctuation.Length % 2 == 0)
+                {
+                    string firstHalf = wordWithoutPunctuation.Substring(0, wordWithoutPunctuation.Length / 2);
+                    string secondHalf = wordWithoutPunctuation.Substring(wordWithoutPunctuation.Length / 2);
 
                     char[] firstArr = firstHalf.ToCharArray();
                     char[] secondArr = secondHalf.ToCharArray();
@@ -40,13 +44,13 @@ namespace Katas.Core
                     string backStrFirst = new string(firstArr);
                     string backStrSecond = new string(secondArr);
 
-                    newStr += backStrFirst + backStrSecond + " ";
+                    newStr += backStrFirst + backStrSecond + punctuationToAdd + " ";
                 }   
                 else 
                 {
-                    string oddFirstHalf = word.Substring(0, word.Length / 2);
-                    string oddSecondHalf = word.Substring(word.Length / 2 + 1);
-                    string middle = word.Substring(word.Length/2).Substring(0, 1);
+                    string oddFirstHalf = wordWithoutPunctuation.Substring(0, wordWithoutPunctuation.Length / 2);
+                    string oddSecondHalf = wordWithoutPunctuation.Substring(wordWithoutPunctuation.Length / 2 + 1);
+                    string middle = wordWithoutPunctuation.Substring(wordWithoutPunctuation.Length/2).Substring(0, 1);
 
                     char[] oddFirstArr = oddFirstHalf.ToCharArray();
                     char[] oddSecondArr = oddSecondHalf.ToCharArray();
@@ -57,7 +61,7 @@ namespace Katas.Core
                     string convertToStringOddFirst = new string(oddFirstArr);
                     string convertToStringOddSecond = new string(oddSecondArr);
 
-                    newStr += convertToStringOddFirst + middle + convertToStringOddSecond + " ";
+                    newStr += convertToStringOddFirst + middle + convertToStringOddSecond + punctuationToAdd + " ";
                 }
             }
 
