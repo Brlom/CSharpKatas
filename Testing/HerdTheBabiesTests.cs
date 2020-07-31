@@ -22,5 +22,35 @@ namespace Testing
             Assert.Equal(original, actual);
         }
 
+        [Fact]
+        public void SortTheBabies_WhenPassedAStrWith1Upper1Lower_ShouldReturnCharsInOrder()
+        {
+            // arrange
+            string original = "aA";
+            HerdTheBabies x = new HerdTheBabies();
+            string expected = "Aa";
+
+            // act
+            string actual = x.SortTheBabies(original);
+
+            // assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void SortTheBabies_WhenPassedAStrWithSeveralLetters_ShouldReturnInOrder()
+        {
+            // arrange
+            string original = "aBA";
+            HerdTheBabies x = new HerdTheBabies();
+            string expected = "AaB";
+
+            // act
+            string actual = x.SortTheBabies(original);
+
+            // assert
+            Assert.Equal(expected, actual);
+        }
+
     }
 }
