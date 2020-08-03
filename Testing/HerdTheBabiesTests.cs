@@ -52,5 +52,35 @@ namespace Testing
             Assert.Equal(expected, actual);
         }
 
+        //[Fact]
+        //public void SortTheBabies_WhenPassedAStrWithSeveralLettersWithOneUpperCase_ShouldReturnInOrder()
+        //{
+        //    // arrange
+        //    string original = "bbaBccAC";
+        //    HerdTheBabies x = new HerdTheBabies();
+        //    string expected = "AaBbbCcc";
+
+        //    // act 
+        //    string actual = x.SortTheBabies(original);
+
+        //    // assert
+        //    Assert.Equal(expected, actual);
+        //}
+
+        //[Fact]
+        //public void SortTheBabies_WhenPassedAStrWithSeveralLettersAndCases_ShouldReturnInOrder()
+        //{
+        //    // arrange
+        //    string original = "AaBbbBaAbAbbAbB";
+        //    HerdTheBabies x = new HerdTheBabies();
+        //    string expected = "AAAAaaBBBbbbbbb";
+
+        //    // act 
+        //    string actual = x.SortTheBabies(original);
+
+        //    // assert
+        //    Assert.Equal(expected, actual);
+        //}
+
     }
 }
