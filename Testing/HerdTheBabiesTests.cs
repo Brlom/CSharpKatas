@@ -1,7 +1,5 @@
 ﻿using Katas.Core;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Testing
@@ -38,6 +36,25 @@ namespace Testing
         }
 
         [Fact]
+        public void SortTheBabies_WhenPassedAStrWithSeveralLettersOnlyOneCase_ShouldReturnInOrder()
+        {
+            // arrange
+            string original = "adepd";
+            string originalUpper = "ADEPD";
+            var x = new HerdTheBabies();
+            string expected = "addep";
+            string expectedUpper = "ADDEP";
+
+            // act
+            string actual = x.SortTheBabies(original);
+            string actualUpper = x.SortTheBabies(originalUpper);
+
+            // assert
+            Assert.Equal(expected, actual);
+            Assert.Equal(expectedUpper, actualUpper);
+        }
+
+        [Fact]
         public void SortTheBabies_WhenPassedAStrWithSeveralLetters_ShouldReturnInOrder()
         {
             // arrange
@@ -52,35 +69,35 @@ namespace Testing
             Assert.Equal(expected, actual);
         }
 
-        //[Fact]
-        //public void SortTheBabies_WhenPassedAStrWithSeveralLettersWithOneUpperCase_ShouldReturnInOrder()
-        //{
-        //    // arrange
-        //    string original = "bbaBccAC";
-        //    HerdTheBabies x = new HerdTheBabies();
-        //    string expected = "AaBbbCcc";
+        [Fact]
+        public void SortTheBabies_WhenPassedAStrWithSeveralLettersWithOneUpperCase_ShouldReturnInOrder()
+        {
+            // arrange
+            string original = "bbaBccAC";
+            HerdTheBabies x = new HerdTheBabies();
+            string expected = "AaBbbCcc";
 
-        //    // act 
-        //    string actual = x.SortTheBabies(original);
+            // act 
+            string actual = x.SortTheBabies(original);
 
-        //    // assert
-        //    Assert.Equal(expected, actual);
-        //}
+            // assert
+            Assert.Equal(expected, actual);
+        }
 
-        //[Fact]
-        //public void SortTheBabies_WhenPassedAStrWithSeveralLettersAndCases_ShouldReturnInOrder()
-        //{
-        //    // arrange
-        //    string original = "AaBbbBaAbAbbAbB";
-        //    HerdTheBabies x = new HerdTheBabies();
-        //    string expected = "AAAAaaBBBbbbbbb";
+        [Fact]
+        public void SortTheBabies_WhenPassedAStrWithSeveralLettersAndCases_ShouldReturnInOrder()
+        {
+            // arrange
+            string original = "AaBbbBaAbAbbAbB";
+            HerdTheBabies x = new HerdTheBabies();
+            string expected = "AAAAaaBBBbbbbbb";
 
-        //    // act 
-        //    string actual = x.SortTheBabies(original);
+            // act 
+            string actual = x.SortTheBabies(original);
 
-        //    // assert
-        //    Assert.Equal(expected, actual);
-        //}
+            // assert
+            Assert.Equal(expected, actual);
+        }
 
     }
 }

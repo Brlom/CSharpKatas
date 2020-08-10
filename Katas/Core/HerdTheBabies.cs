@@ -16,23 +16,29 @@ namespace Katas.Core
                 return string.Empty;
             }
 
-            Regex upperCaseMatch = new Regex(@"[A-Z]");
-            string finalStr = string.Empty;
+            string sortedStr = String.Concat(original.OrderBy(c => c));
 
-            if (upperCaseMatch.IsMatch(original))
+            var dictionary = new Dictionary<char, string>();
+            string finalStr = String.Empty;
+
+            foreach (char c in sortedStr)
             {
-                var upperMatch = Regex.Matches(original, @"[A-Z]+").OfType<Match>().Select(m => m.Value).ToList<string>();
-                var lowerMatch = Regex.Matches(original, @"[a-z]+").OfType<Match>().Select(m => m.Value).ToList<string>();
-             
-                finalStr = upperMatch.Aggregate("", (total, next) => total += next);
-                finalStr = lowerMatch.Aggregate(finalStr, (total, next) => total += next);
-                
+                char curr = Char.ToLower(c);
+                if (dictionary.ContainsKey(curr))
+                {
+                    dictionary[curr] += c;
+                }
+                else
+                {
+                    dictionary.Add(curr, c.ToString());
+                }
             }
-            else
+
+            foreach (var pair in dictionary.OrderBy(p => p.Key))
             {
-                finalStr += original;
+                finalStr += pair.Value;
             }
-           
+
             return finalStr;
         }
 
