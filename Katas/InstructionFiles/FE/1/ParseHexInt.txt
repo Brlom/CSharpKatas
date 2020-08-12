@@ -1,0 +1,25 @@
+﻿In this kata, you need to complete the function parseHexInt which takes a hexadecimal number, such as F8, and returns the same number expressed in the decimal numerical sytem.
+
+To read more about the Hexadecimal numerical system, see some of the following links:
+
+Resources
+Understanding Hexadecimal in 60 seconds
+
+Comprehensive explanation of Binary, Decimal and Hex
+
+Why do we use Hexadecimal numbers?
+
+Your task
+You should complete the parseHexInt function without recourse to any of the native JavaScript number manipulation functions such as parseInt! Research how hex numbers work and how to manually convert between the hexadecimal and decimal systems.
+
+Your function should be case insensitive when it comes to the hexadecimal numbers, as is the native parseInt. If your function receives a non-valid hex number.
+
+Examples
+parseHexInt('ff')
+// --> 255
+parseHexInt('f')
+// --> 15
+parseHexInt('17f')
+// --> 383
+parseHexInt('d4e89')
+// --> 872073

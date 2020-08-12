@@ -1,0 +1,5 @@
+﻿Implement the following underscore methods
+
+http://underscorejs.org/#every
+http://underscorejs.org/#contains
+http://underscorejs.org/#some

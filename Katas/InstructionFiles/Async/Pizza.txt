@@ -1,0 +1,12 @@
+﻿fetchPizzas
+Write a function called fetchPizzas that takes an array of pizza ids and an error-first callback.
+
+In this function, use your asyncMap with the array of ids to invoke getPizzaById for each id. Once you have got all pizza responses, invoke the callback with an array of the pizza objects.
+
+fetchLocalPizzaShopInfo
+Write a function called fetchLocalPizzaShopInfo which takes an error-first callback as an argument.
+Firstly invoke getLocalPizzaShops. This function will return an array of pizzaShop objects. Loop through these and filter out the ones who do not deliver.
+
+For the remaining pizza shops, invoke getPizzasForShopId passing in each shop id. This will invoke its callback with an array of pizzas. You need to add these pizzas as a pizzas property to the relevant pizza shop object.
+
+Once all the pizza info has been received, invoke the error-first callback with the array of pizza shop objects.

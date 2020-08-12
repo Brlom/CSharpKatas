@@ -1,0 +1,31 @@
+﻿In order to maximise security, Northcoders has split up its password and distributed it across 6 differnet continents. Each continent holds a chunk - which holds an encrypted part of the password!
+
+You will need to write a function called retrieveAndVerify.
+
+It will need to make requests to fetch all the password chunks, decrypt each of them, put them back together again and then check to see if you have the right password!
+
+Phew! This is a lot of work: fortunately, you will have several utility functions available to you:
+
+grabChunk
+grabChunk is an asynchronous function that takes a location and an error-first callback function. It passes the callback function a chunk object: an object with a position property and a chunk property (which is the encrypted string):
+grabChunk('Europe',(err,chunk) => {})
+'***' is the encrypted string in this example.
+
+decryptChunkString
+`decryptChunkString is an asynchronous function which takes an encrypted chunk string and passes the decrypted string to the error-first callback function.
+decryptChunkString('***',(err,decryptedString) => {})
+verifyPassword
+Finally once you have assembled the strings into the correct order, you should invoke the verifyPassword function with the password and an error first callback function to see if your password is correct.
+
+verifyPassword(password, (err, message) => {})
+If you have succeeded then verifyPasword will respond with the message 'SUCCESSFUL PASSWORD RETRIEVED!'
+
+You should run the command npm run check in order to run the function: there are no tests for this kata so you must check the console output in order to see if you are heading in the right direction.
+
+You must write your functionality in the file main.js : don't alter any of the other files!
+
+Remember:
+
+You should consider which array method is best to use in this problem - we are making multiple async requests.
+
+You should think about how to assemble the strings back in the correct order once they are decrypted!

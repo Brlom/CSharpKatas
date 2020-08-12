@@ -1,0 +1,23 @@
+﻿Create a function that looks through a flat array and returns an object that describes the most repeated element or elements in the array. The object will be in the format:
+
+{
+  elements: ['foo'],
+  repeats: 3
+}
+If the array is empty or there are no repeated elements, return:
+
+{
+  elements: [],
+  repeats: null
+}
+examples
+You can use these examples to start building up your test suite
+
+findMostRepeated([]);
+  --> {elements: [], repeats: null}
+findMostRepeated(['foo', 'bar', 'hello', 'world']);
+  --> {elements: [], repeats: null}
+findMostRepeated(['foo', 'foo', 'bar', 'hello', 'world']);
+  --> {elements: ['foo'], repeats: 2}
+findMostRepeated(['foo', 'foo', 1, 2, 3, 'bar', 2, 3, 4, 'bar', 'bar', 'foo']);
+  --> {elements: ['foo', 'bar'], repeats: 3}

@@ -1,0 +1,4 @@
+﻿async map should take an array and an asynchronous iteratee and apply the asynchronous iteratee to each element in the array. 
+The callback functions passed to the async iteratee could be invoked in any order so you need to use logic to ensure that 
+the elements come back in the same order as the original array. 
+You must also ensure that the final callback is invoked when all the responses have come back!

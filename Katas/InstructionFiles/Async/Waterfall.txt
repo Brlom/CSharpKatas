@@ -1,0 +1,8 @@
+﻿Implement your own version of async library's waterfall
+
+waterfall should take 2 arguments:
+
+an array of async functions
+a final callback function
+Each async function in the array should be invoked and its results passed as arguments to the next async function. 
+See here for more examples: https://caolan.github.io/async/docs.html#waterfall

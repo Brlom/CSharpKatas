@@ -1,0 +1,55 @@
+﻿The challenge is to implement a function which decodes a morse code string! The morse code will have a space between each letter and three between each word
+
+examples
+You can use these examples to start building up your test suite
+
+    morseDecode(".... ..");
+    // -> "HI"
+    morseDecode(".... . .-.. .-.. ---");
+    // -> "HELLO"
+    morseDecode("-. --- .-. - .... -.-. --- -.. . .-. ...");
+    // -> "NORTHCODERS"
+    const morse = "--. --- --- -..   -- --- .-. -. .. -. --.   -. --- .-. - .... -.-. --- -.. . .-. ..."
+    morseDecode(morse);
+    // -> "GOOD MORNING NORTHCODERS"
+
+Morse Code Table
+.-	    A
+-...	B
+-.-.	C
+-..	    D
+.	    E
+..-.	F
+--.	    G
+....	H
+..	    I
+.---	J
+-.-	    K
+.-..	L
+--	    M
+-.	    N
+---	    O
+.--.	P
+--.-	Q
+.-.	    R
+...	    S
+-	    T
+..-	    U
+...-	V
+.--	    W
+-..-	X
+-.--	Y
+--..	Z
+.----	1
+..---	2
+...--	3
+....-	4
+.....	5
+-....	6
+--...	7
+---..	8
+----.	9
+-----	0
+
+Extra credit
+Extend the function to take a third argument "toMorse" which is a boolean and convert a string to morse code
