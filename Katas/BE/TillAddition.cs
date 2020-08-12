@@ -13,27 +13,50 @@ namespace Katas.BE
                 return "£0.00";
             }
 
-            double totalSum = 0;
+            double totalSum = 0.00;
 
             foreach(KeyValuePair<string, int> entry in tillContents)
             {
-                // entry.Value && entry.Key
                 if (entry.Value != 0)
                 {
+                    string extractedKeyIntValue = String.Empty;
+                    string extractedKeyCharValue = String.Empty;
                     char[] charArr = entry.Key.ToCharArray();
                     foreach (char c in charArr)
                     {
-                        double numericCharValue = Char.GetNumericValue(c);
+                        bool isCharInt = Char.IsNumber(c);
 
-                        if (numericCharValue.GetType() == typeof(int))
+                        if (isCharInt)
                         {
-                            totalSum += numericCharValue * entry.Value;
+                            extractedKeyIntValue += c.ToString();
+                        }
+                        else
+                        {
+                            extractedKeyCharValue += c.ToString();
                         }
                     }
-                    // convert entry.key to int
+
+                    string sumAllMonetaryPieces = (Convert.ToDouble(extractedKeyIntValue) * entry.Value).ToString();
+
+                    if (extractedKeyCharValue == "p" && sumAllMonetaryPieces.Length <= 1)
+                    {
+                        totalSum += Convert.ToDouble($"0.0{Int32.Parse(sumAllMonetaryPieces)}");
+                    }
+                    else if (extractedKeyCharValue == "p" && sumAllMonetaryPieces.Length > 2)
+                    {
+                        totalSum += Convert.ToDouble($"{sumAllMonetaryPieces.Substring(0, sumAllMonetaryPieces.Length-2)}.{sumAllMonetaryPieces.Substring(sumAllMonetaryPieces.Length-2)}");
+                    }
+                    else if (extractedKeyCharValue == "£")
+                    {
+                        totalSum += Convert.ToDouble($"{Int32.Parse(sumAllMonetaryPieces)}.00");
+                    }
+                    else
+                    {
+                        totalSum += Convert.ToDouble($"0.{Int32.Parse(sumAllMonetaryPieces)}");
+                    }
                 }
             }
-            return "£0.00";
+            return $"£{totalSum}";
         }
     }
 }
