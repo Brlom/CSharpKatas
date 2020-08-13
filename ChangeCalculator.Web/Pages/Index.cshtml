@@ -1,0 +1,50 @@
+﻿@page
+
+@using Katas.BE
+
+<div class="main__outer">
+    <div class="main__headerContainer">
+        <h1 class="main__header">Change Calculator</h1>
+    </div>
+    <form method="post" class="form">
+        <div class="form__instructionContainer">
+            <p class="form__instructions">Please Enter The Amount Of Change You Want To Calculate:</p>
+            <p class="form__furtherInstructions">(in pence)</p>
+        </div>
+        <div class="form__inputContainer">
+            <input type="number" name="ChangeAmount" placeholder="Enter Amount" class="form__amountInput" />
+            <div class="form__submitContainer">
+                <input type="submit" value="Calculate" class="form__submit" />
+            </div>
+        </div>
+    </form>
+    @{
+        var x = new ChangeCalculator();
+
+        if (Request.Method == "POST")
+        {
+            double changeToCalculate = Convert.ToDouble(Request.Form["changeamount"]);
+            var calculate = x.CalculateChange(Convert.ToDouble(changeToCalculate));
+
+            <table class="table">
+                <thead class="table__head">
+                    <tr>
+                        <th>Coin</th>
+                        <th>Number Of Coins Due:</th>
+                    </tr>
+                </thead>
+                <tbody class="table__body">
+                    @{
+                        foreach (KeyValuePair<string, double> entry in calculate)
+                        {
+                            <tr>
+                                <td>@(entry.Key)</td>
+                                <td>@(entry.Value)</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+    }
+</div>

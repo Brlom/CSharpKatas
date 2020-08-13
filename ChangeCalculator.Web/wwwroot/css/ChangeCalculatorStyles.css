@@ -1,0 +1,165 @@
+﻿html {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center; }
+
+.body {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  background-color: #ff0095; }
+  .body__outer {
+    display: flex;
+    flex: 1;
+    background-image: url(../Assets/coinsImg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; }
+
+.main {
+  display: flex;
+  flex: 1;
+  margin: 30px 0; }
+  .main__outer {
+    display: flex;
+    flex: 0 1 30%;
+    height: 100%;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: auto;
+    padding: 30px;
+    background-color: #000; }
+  .main__headerContainer {
+    display: flex;
+    flex: 0 1 10%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff; }
+  .main__header {
+    display: flex;
+    flex: 0 1 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: unset;
+    padding: 10px;
+    background-color: #cc0076;
+    color: #fff; }
+
+.form {
+  display: flex;
+  flex: 0 1 40%;
+  width: 100%;
+  flex-flow: column nowrap;
+  padding: 20px 20px 0 20px; }
+  .form__instructionContainer {
+    display: flex;
+    flex: 0 1 50%;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    color: #fff; }
+  .form__instructions {
+    display: flex;
+    flex: 0 1 20%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2px;
+    font-size: 17px;
+    font-weight: 400; }
+  .form__furtherInstructions {
+    display: flex;
+    flex: 0 1 20%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: unset;
+    font-size: 15px;
+    font-weight: 300; }
+  .form__inputContainer {
+    display: flex;
+    flex: 0 1 50%;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    padding: 15px 0; }
+  .form__amountInput {
+    display: flex;
+    flex: 0 1 5%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; }
+  .form__submitContainer {
+    display: flex;
+    flex: 0 1 14%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    margin: 0 25px; }
+  .form__submit {
+    display: flex;
+    flex: 1;
+    height: 65%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #cc0076;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 0.4em; }
+
+.table {
+  display: flex;
+  flex: 0 1 40%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  color: #fff;
+  font-size: 14px;
+  border-color: #cc0076; }
+  .table__head {
+    display: flex;
+    flex: 0 1 20%;
+    width: 100%;
+    justify-content: center;
+    align-items: center; }
+  .table__body {
+    display: flex;
+    flex: 0 1 70%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap; }
+    .table__body tr {
+      flex: 0 1 70%;
+      width: 85%; }
+
+tr {
+  display: flex;
+  flex: 0 1 85%;
+  height: 70%;
+  justify-content: center;
+  align-items: center; }
+
+th {
+  border-bottom: unset !important; }
+
+th, td {
+  display: flex;
+  flex: 0 1 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center; }
