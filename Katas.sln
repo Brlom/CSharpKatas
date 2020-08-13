@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Katas", "Katas\Katas.csproj", "{CB20CF0B-5373-4E83-AB31-42D04B1EAF2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{431A0267-3868-466D-AB6B-16B3BC96E446}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Testing\Testing.csproj", "{431A0267-3868-466D-AB6B-16B3BC96E446}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeCalculatorXtraCred", "ChangeCalculatorXtraCred\ChangeCalculatorXtraCred.csproj", "{6BDE4199-9354-481E-A717-338807E2B861}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{431A0267-3868-466D-AB6B-16B3BC96E446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{431A0267-3868-466D-AB6B-16B3BC96E446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{431A0267-3868-466D-AB6B-16B3BC96E446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BDE4199-9354-481E-A717-338807E2B861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BDE4199-9354-481E-A717-338807E2B861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BDE4199-9354-481E-A717-338807E2B861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BDE4199-9354-481E-A717-338807E2B861}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
