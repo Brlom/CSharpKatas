@@ -8,7 +8,7 @@ namespace Testing.BETests
     public class EveryContainsSomeTests
     {
         [Fact]
-        public void EveryContainsSome_WhenPassedListOfNumsAndDel_ShouldReturnBool()
+        public void EveryContainsSome_Every_WhenPassedListOfNumsAndDel_ShouldReturnBool()
         {
             // arrange
             var originalList = new List<int>()
@@ -42,7 +42,7 @@ namespace Testing.BETests
 
         // TODO: should make this work for other types as well.
         [Fact]
-        public void EveryContainsSome_ShouldReturnBool_WhenPassedListAndItemInList()
+        public void EveryContainsSome_Contains_ShouldReturnBool_WhenPassedListAndItemInList()
         {
             // arrange
             var originalList = new List<int>()
@@ -75,7 +75,7 @@ namespace Testing.BETests
         }
 
         [Fact]
-        public void EveryContainsSome_ShouldReturnBool_WhenPassedListContainingTruthyVal()
+        public void EveryContainsSome_Some_ShouldReturnBool_WhenPassedListContainingTruthyVal()
         {
             // arrange
             var originalList = new List<Object>()
