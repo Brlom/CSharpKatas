@@ -11,32 +11,29 @@ namespace Katas.BE
         {
             int result = 0;
 
-            string regex = @"\d+";
-
-            string regExLessFour = @"\b\w{ 0,4}\b";
-            string regExLessNine = @"\b\w{ 5,9}\b";
-            string regExMoreEight = @"\b\w{ 8,}\b";
+            //string regExInt = @"\d+";
 
             //!@#$%^&*
 
-            MatchCollection intMatches = Regex.Matches(password, regex);
+            //MatchCollection lessNineMatches = Regex.Matches(password, regExLessNine);
+            //MatchCollection moreEightMatches = Regex.Matches(password, regExMoreEight);
 
-            if (password.Length < 4 && password.Length > 0)
+            if (Regex.IsMatch(password, @"\b[a-z]{0,3}\b"))
             {
                 result = 1;
             }
-            else if (password.Length > 3 && password.Length < 9)
+            else if (Regex.IsMatch(password, @"\b[a-z]{4,8}\b"))
             {
                 result = 2;
             }
-            else if (password.Length >= 9 && intMatches.Count < 1)
+            else if (Regex.IsMatch(password, @"\b[a-z]{9,}\b"))
             {
                 result = 3;
             }
-            else if (password.Length >= 9 && intMatches.Count == 1)
-            {
-                result = 4;
-            }
+            //else if (password.Length >= 9 && intMatches.Count == 1)
+            //{
+            //    result = 4;
+            //}
 
             return result;
         }
