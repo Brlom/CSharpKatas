@@ -11,30 +11,51 @@ namespace Katas.BE
         {
             int result = 0;
 
-            //string regExInt = @"\d+";
+            string regExInt = @"\d";
+            string regExSpecChar = @"[!@£#$%^&*\\]";
 
-            //!@#$%^&*
+            MatchCollection intCheck = Regex.Matches(password, regExInt);
+            MatchCollection specCharCheck = Regex.Matches(password, regExSpecChar);
 
-            //MatchCollection lessNineMatches = Regex.Matches(password, regExLessNine);
-            //MatchCollection moreEightMatches = Regex.Matches(password, regExMoreEight);
-
-            if (Regex.IsMatch(password, @"\b[a-z]{0,3}\b"))
+            if (password.Length > 0 && password.Length < 4)
             {
                 result = 1;
             }
-            else if (Regex.IsMatch(password, @"\b[a-z]{4,8}\b"))
+            else if (password.Length >= 4 && password.Length < 9)
             {
                 result = 2;
             }
-            else if (Regex.IsMatch(password, @"\b[a-z]{9,}\b"))
+            else if (password.Length >= 9 && password.Length < 12)
             {
-                result = 3;
+                if (intCheck.Count != 0 && specCharCheck.Count != 0)
+                {
+                    result = 5;
+                }
+                else if (intCheck.Count != 0)
+                {
+                    result = 4;
+                }
+                else
+                {
+                    result = 3;
+                }
             }
-            //else if (password.Length >= 9 && intMatches.Count == 1)
-            //{
-            //    result = 4;
-            //}
-
+            else if (password.Length >= 12)
+            {
+                if (intCheck.Count != 0 && specCharCheck.Count != 0)
+                {
+                    result = 7;
+                }
+                else if (intCheck.Count != 0)
+                {
+                    result = 6;
+                }
+                else
+                {
+                    result = 3;
+                }
+            }
+           
             return result;
         }
     }
