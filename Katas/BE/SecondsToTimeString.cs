@@ -20,16 +20,36 @@ namespace Katas.BE
 
             while (remainingSeconds > 0)
             {
-                if (remainingSeconds > 60)
+                if (remainingSeconds > 3600)
+                {
+                    double secondsLeftAfterHourDeducted = remainingSeconds % 3600;
+                    resultHours = (remainingSeconds - secondsLeftAfterHourDeducted) / 3600;
+                    if (resultHours == 1)
+                    {
+                        resultHourStr = "hour";
+                    }
+                    else
+                    {
+                        resultHourStr = "hours";
+                    }
+                    remainingSeconds -= resultHours * 3600;
+                }
+                else if (remainingSeconds == 3600)
+                {
+                    resultHours = remainingSeconds / 3600;
+                    resultHourStr = "hour";
+                    remainingSeconds -= remainingSeconds;
+                }
+                else if (remainingSeconds > 60)
                 {
                     double secondsLeftAfterMinDeducted = remainingSeconds % 60;
-                    resultMinutes = (remainingSeconds-secondsLeftAfterMinDeducted) / 60;
+                    resultMinutes = (remainingSeconds - secondsLeftAfterMinDeducted) / 60;
                     if (resultMinutes == 1)
                     {
                         resultMinuteStr = "minute";
                     }
                     else
-                    { 
+                    {
                         resultMinuteStr = "minutes";
                     }
                     remainingSeconds -= resultMinutes * 60;
