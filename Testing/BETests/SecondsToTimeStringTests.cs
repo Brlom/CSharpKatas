@@ -39,16 +39,16 @@ namespace Testing.BETests
         {
             // arrange
             double original = 60;
-            string expected = "1 minute";
+            string expected = "1 minute 0 seconds";
 
             double original2 = 61;
             string expected2 = "1 minute 1 second";
 
             double original3 = 120;
-            string expected3 = "2 minutes";
+            string expected3 = "2 minutes 0 seconds";
 
             double original4 = 1257;
-            string expected4 = "20 minutes 57seconds";
+            string expected4 = "20 minutes 57 seconds";
 
             var x = new SecondsToTimeString();
 
@@ -71,12 +71,12 @@ namespace Testing.BETests
             // arrange
             double original = 3661;
             string expected = "1 hour 1 minute 1 second";
-            
+
             double original2 = 3600;
-            string expected2 = "1 hour";
+            string expected2 = "1 hour 0 minutes 0 seconds";
 
             double original3 = 3660;
-            string expected3 = "1 hour 1 minute";
+            string expected3 = "1 hour 1 minute 0 seconds";
 
             double original4 = 18116;
             string expected4 = "5 hours 1 minute 56 seconds";
@@ -94,7 +94,10 @@ namespace Testing.BETests
             Assert.Equal(expected2, actual2);
             Assert.Equal(expected3, actual3);
             Assert.Equal(expected4, actual4);
-
         }
+
+        // Add test for days
+        // Add test for weeks
+        // Add test for years
     }
 }

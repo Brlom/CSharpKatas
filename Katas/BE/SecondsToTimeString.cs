@@ -11,8 +11,8 @@ namespace Katas.BE
             double remainingSeconds = seconds;
             string finalStr = String.Empty;
 
-            string resultHourStr = String.Empty;
-            string resultMinuteStr = String.Empty;
+            string resultHourStr = "hours";
+            string resultMinuteStr = "minutes";
             string resultSecondStr = "seconds";
             double resultHours = 0;
             double resultMinutes = 0;
@@ -76,32 +76,22 @@ namespace Katas.BE
 
             if (resultHours > 0)
             {
-                finalStr += $"{resultHours} {resultHourStr}";
+                finalStr = $"{resultHours} {resultHourStr} {resultMinutes} {resultMinuteStr} {resultSeconds} {resultSecondStr}";
             }
-            if (resultMinutes > 0)
+            else if (resultHours == 0)
             {
-                if (resultHourStr != String.Empty)
-                {
-                    finalStr += $" {resultMinutes} {resultMinuteStr}";
-                }
-                else
-                { 
-                    finalStr += $"{resultMinutes} {resultMinuteStr}";
-                }
-            }
-            if (resultSeconds >= 0)
-            {
-                if (resultMinuteStr != String.Empty)
-                {
-                    if (resultSeconds != 0)
-                    {
-                        finalStr += $" {resultSeconds} {resultSecondStr}";
-                    }
-                }
-                else
+                if (resultMinutes == 0)
                 {
                     finalStr += $"{resultSeconds} {resultSecondStr}";
-                }    
+                }
+                else
+                {
+                    finalStr = $"{resultMinutes} {resultMinuteStr} {resultSeconds} {resultSecondStr}";
+                }
+            }
+            else
+            {
+                finalStr = $"{resultSeconds} {resultSecondStr}";
             }
 
             return finalStr;
