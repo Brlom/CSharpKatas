@@ -73,7 +73,7 @@ namespace Testing.BETests
             string expected = "1 hour 1 minute 1 second";
 
             double original2 = 3600;
-            string expected2 = "1 hour 0 minutes 0 seconds";
+            string expected2 = "1 hour 0 seconds";
 
             double original3 = 3660;
             string expected3 = "1 hour 1 minute 0 seconds";
@@ -96,8 +96,67 @@ namespace Testing.BETests
             Assert.Equal(expected4, actual4);
         }
 
-        // Add test for days
-        // Add test for weeks
-        // Add test for years
+        [Fact]
+        public void SecondsToTimeString_ConvertSecondsToString_WhenPassedNumLargerThan86400_ReturnsDaysAsWellAsHoursMinutesAndSeconds()
+        {
+            // arrange - 86400secs
+            double original = 90061;
+            string expected = "1 day 1 hour 1 minute 1 second";
+
+            double original2 = 400461;
+            string expected2 = "4 days 15 hours 14 minutes 21 seconds";
+
+            var x = new SecondsToTimeString();
+
+            // act
+            var actual = x.ConvertSecondsToString(original);
+            var actual2 = x.ConvertSecondsToString(original2);
+
+            // assert
+            Assert.Equal(expected, actual);
+            Assert.Equal(expected2, actual2);
+        }
+
+        [Fact]
+        public void SecondsToTimeString_ConvertSecondsToString_WhenPassedNumLargerThan604800_ReturnsWeeksAsWellAsDaysHoursMinutesAndSeconds()
+        {
+            // arrange - 604800secs
+            double original = 694861;
+            string expected = "1 week 1 day 1 hour 1 minute 1 second";
+
+            double original2 = 4090479;
+            string expected2 = "6 weeks 5 days 8 hours 14 minutes 39 seconds";
+
+            var x = new SecondsToTimeString();
+
+            // act
+            var actual = x.ConvertSecondsToString(original);
+            var actual2 = x.ConvertSecondsToString(original2);
+
+            // assert
+            Assert.Equal(expected, actual);
+            Assert.Equal(expected2, actual2);
+        }
+
+        [Fact]
+        public void SecondsToTimeString_ConvertSecondsToString_WhenPassedNumLargerThan31449600_ReturnsYearsAsWellAsWeeksDaysHoursMinutesAndSeconds()
+        {
+            // arrange - 31449600secs
+            double original = 32144461;
+            string expected = "1 year 1 week 1 day 1 hour 1 minute 1 second";
+
+            double original2 = 127702942;
+            string expected2 = "4 years 3 weeks 1 day 1 hour 2 minutes 22 seconds";
+
+            var x = new SecondsToTimeString();
+
+            // act
+            var actual = x.ConvertSecondsToString(original);
+            var actual2 = x.ConvertSecondsToString(original2);
+
+            // assert
+            Assert.Equal(expected, actual);
+            Assert.Equal(expected2, actual2);
+        }
     }
 }
