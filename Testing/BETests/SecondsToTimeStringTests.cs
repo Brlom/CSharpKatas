@@ -13,7 +13,7 @@ namespace Testing.BETests
         {
             // arrange
             double original = 0;
-            string expected = $"{original} seconds";
+            string expected = "";
 
             double original2 = 1;
             string expected2 = $"{original2} second";
@@ -39,13 +39,13 @@ namespace Testing.BETests
         {
             // arrange
             double original = 60;
-            string expected = "1 minute 0 seconds";
+            string expected = "1 minute";
 
             double original2 = 61;
             string expected2 = "1 minute 1 second";
 
             double original3 = 120;
-            string expected3 = "2 minutes 0 seconds";
+            string expected3 = "2 minutes";
 
             double original4 = 1257;
             string expected4 = "20 minutes 57 seconds";
@@ -73,10 +73,10 @@ namespace Testing.BETests
             string expected = "1 hour 1 minute 1 second";
 
             double original2 = 3600;
-            string expected2 = "1 hour 0 seconds";
+            string expected2 = "1 hour";
 
             double original3 = 3660;
-            string expected3 = "1 hour 1 minute 0 seconds";
+            string expected3 = "1 hour 1 minute";
 
             double original4 = 18116;
             string expected4 = "5 hours 1 minute 56 seconds";
@@ -146,17 +146,27 @@ namespace Testing.BETests
             string expected = "1 year 1 week 1 day 1 hour 1 minute 1 second";
 
             double original2 = 127702942;
-            string expected2 = "4 years 3 weeks 1 day 1 hour 2 minutes 22 seconds";
+            string expected2 = "4 years 2 weeks 1 day 1 hour 2 minutes 22 seconds";
+
+            double original3 = 32140942;
+            string expected3 = "1 year 1 week 1 day 2 minutes 22 seconds";
+
+            double original4 = 630806400;
+            string expected4 = "20 years";
 
             var x = new SecondsToTimeString();
 
             // act
             var actual = x.ConvertSecondsToString(original);
             var actual2 = x.ConvertSecondsToString(original2);
+            var actual3 = x.ConvertSecondsToString(original3);
+            var actual4 = x.ConvertSecondsToString(original4);
 
             // assert
             Assert.Equal(expected, actual);
             Assert.Equal(expected2, actual2);
+            Assert.Equal(expected3, actual3);
+            Assert.Equal(expected4, actual4);
         }
     }
 }
