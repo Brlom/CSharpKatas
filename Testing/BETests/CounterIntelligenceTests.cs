@@ -39,11 +39,26 @@ namespace Testing.BETests
         }
 
         [Fact]
-        public void CounterIntelligence_StringDecoder_WhenPassedStrWithNoSpace_ShouldReturnDecodedStr()
+        public void CounterIntelligence_StringDecoder_WhenPassedStrWithSpace_ShouldReturnDecodedStr()
         {
             // arranage
             string original = "BCDY";
             string expected = "ABCX";
+            var x = new CounterIntelligence();
+
+            // act
+            var actual = x.StringDecoder(original);
+
+            // assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void CounterIntelligence_StringDecoder_WhenPassedStrWithNoSpace_ShouldReturnDecodedStr()
+        {
+            // arranage
+            string original = "BCD Y";
+            string expected = "ABC X";
             var x = new CounterIntelligence();
 
             // act
