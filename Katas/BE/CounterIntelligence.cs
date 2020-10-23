@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Katas.BE
 {
@@ -13,13 +14,19 @@ namespace Katas.BE
             int kissX = 24;
             string decodedMsg = String.Empty;
 
-            char[] charArr = strToDecode.ToCharArray();
+            char[] charArr = strToDecode.ToUpper().ToCharArray();
             int kissLetterDiff = kissX - LetterValueLookup(charArr[charArr.Length -1]);
 
             foreach (char charInStr in charArr)
             {
-                int decodedLetterValue = LetterValueLookup(charInStr);
-                decodedMsg += LetterLookup(decodedLetterValue, kissLetterDiff);
+                if (Regex.IsMatch(charInStr.ToString(), @"[A-Z]"))
+                {
+                    int decodedLetterValue = LetterValueLookup(charInStr);
+                    decodedMsg += LetterLookup(decodedLetterValue, kissLetterDiff);
+                }
+                else {
+                    decodedMsg += charInStr;
+                }
             }
 
             return decodedMsg;
@@ -60,9 +67,8 @@ namespace Katas.BE
             return letterValueDict[strChar];
         }
 
-        public string LetterLookup(int decodedLetterVal, int strKissDiff)
+        public string LetterLookup(int decodedLetterVal, int kissDiff)
         {
-
             var letterDict = new Dictionary<int, string>()
             {
                 { 1, "A" },
@@ -93,7 +99,15 @@ namespace Katas.BE
                 { 26, "Z" },
             };
 
-            return letterDict[decodedLetterVal+strKissDiff];
+            int letterVal = decodedLetterVal + kissDiff;
+            int newLetterVal = 0;
+
+            if (letterVal > 26)
+            {
+                newLetterVal = letterVal - 26;
+            }
+
+            return (newLetterVal > 0) ? letterDict[newLetterVal] : letterDict[letterVal];
         }
     }
 }
