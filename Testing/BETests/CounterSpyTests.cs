@@ -77,10 +77,34 @@ namespace Testing.BETests
         public void RemoveSpies_ShouldReturnOrderedList()
         {
             // arrange
+            var list = new List<string>();
+            list.Add("Mauro");
+            list.Add("Harriet");
+
+            var list2 = new List<string>();
+            list2.Add("Sam");
+            list2.Add("Harriet");
+            list2.Add("Adrian");
+            list2.Add("Mauro");
+
+            var expected = new List<string>();
+            expected.Add("Harriet");
+            expected.Add("Mauro");
+
+            var expected2 = new List<string>();
+            expected2.Add("Adrian");
+            expected2.Add("Harriet");
+            expected2.Add("Mauro");
+
+            var sut = new CounterSpy();
 
             // act
+            var actual = sut.RemoveSpies(list);
+            var actual2 = sut.RemoveSpies(list2);
 
             // assert
+            Assert.Equal(expected, actual);
+            Assert.Equal(expected2, actual2);
         }
     }
 }

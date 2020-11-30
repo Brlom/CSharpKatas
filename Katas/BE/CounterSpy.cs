@@ -12,7 +12,7 @@ namespace Katas.BE
             foreach (string listItem in providedList)
             {
                 var lowerItem = listItem.ToLower();
-                if (lowerItem.Contains('y') || lowerItem.Contains('s') || lowerItem.Contains('y'))
+                if (lowerItem.Contains('s') || lowerItem.Contains('s') || lowerItem.Contains('y'))
                 {
                     
                 }
@@ -21,6 +21,8 @@ namespace Katas.BE
                     finalList.Add(listItem);
                 }
             }
+
+            finalList.Sort();
             return finalList;
         }
     }
