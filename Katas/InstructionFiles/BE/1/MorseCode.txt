@@ -1,4 +1,5 @@
-﻿The challenge is to implement a function which decodes a morse code string! The morse code will have a space between each letter and three between each word
+﻿The challenge is to implement a function which decodes a morse code string! 
+The morse code will have a space between each letter and three between each word
 
 examples
 You can use these examples to start building up your test suite
@@ -52,4 +53,4 @@ Morse Code Table
 -----	0
 
 Extra credit
-Extend the function to take a third argument "toMorse" which is a boolean and convert a string to morse code
+Extend the function to take a second argument "toMorse" which is a boolean and convert a string to morse code
