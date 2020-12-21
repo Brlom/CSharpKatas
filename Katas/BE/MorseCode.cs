@@ -12,26 +12,42 @@ namespace Katas.BE
 
             if (!toMorse && !string.IsNullOrEmpty(morseCode))
             {
-                var morseList = morseCode.Split(" ");
-                foreach(string morse in morseList)
-                { 
-                    newMsg += findDecodedValue(morse);
+                string decodedStr = String.Empty;
+                var morseWordList = morseCode.Split("   ");
+                foreach (string word in morseWordList)
+                {
+                    string newWord = String.Empty;
+                    var morseList = word.Split(" ");
+                    foreach(string morseChar in morseList)
+                    { 
+                        newWord += findDecodedValue(morseChar);
+                    }
+                    decodedStr += $"{newWord} ";
                 }
+                newMsg = decodedStr;
             }
             else if (toMorse && !string.IsNullOrEmpty(morseCode))
             {
-                var morseStr = morseCode.ToUpper();
-                foreach (char morse in morseStr)
+                string encodedStr = String.Empty;
+                var wordList = morseCode.Split(" ");
+                foreach (string word in wordList)
                 {
-                    newMsg += $"{findMorseValue(morse)} ";
+                    string newEncodedWord = String.Empty;
+                    var morseStr = word.ToUpper();
+                    foreach (char charInWord in morseStr)
+                    {
+                        newEncodedWord += $"{findMorseValue(charInWord)} ";
+                    }
+                    encodedStr += $"{newEncodedWord}  ";
                 }
+                newMsg = encodedStr;
             }
             else
             {
                 return String.Empty;
             }
 
-            return toMorse ? newMsg.TrimEnd(' ') : $"{newMsg.Substring(0, 1)}{newMsg.Substring(1).ToLower()}";
+            return toMorse ? newMsg.TrimEnd(' ') : $"{newMsg.Substring(0, 1)}{newMsg.Substring(1).ToLower().TrimEnd(' ')}";
         }
 
         public string findDecodedValue(string morseCode)
