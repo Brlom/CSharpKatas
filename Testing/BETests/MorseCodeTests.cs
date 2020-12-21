@@ -72,5 +72,7 @@ namespace Testing.BETests
             // assert
             Assert.Equal(expected, actual);
         }
+
+        // add test/code for sentances with punctuation
     }
 }
