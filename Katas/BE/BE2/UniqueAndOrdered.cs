@@ -16,14 +16,29 @@ namespace Katas.BE.BE2
                 return list;
             }
 
-            IEnumerable<Tin> distinctVals = values.Distinct();
+            //IEnumerable<Tin> distinctVals = values.Distinct();
 
-            foreach (Tin value in distinctVals)
+            Tin prevVal = default(Tin);
+
+            foreach (Tin value in values)
             {
-                list.Add((Tout)Convert.ChangeType(value, typeof(Tout)));
+                if (IsEqual(value, prevVal))
+                {
+
+                }
+                else
+                {
+                    list.Add((Tout)Convert.ChangeType(value, typeof(Tout)));
+                    prevVal = value;
+                }
             }
 
             return list;
+        }
+
+        static bool IsEqual<T>(T a, T b)
+        {
+            return object.Equals(a, b);
         }
     }
 }

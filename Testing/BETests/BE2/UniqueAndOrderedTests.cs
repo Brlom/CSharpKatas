@@ -31,7 +31,9 @@ namespace Testing.BETests.BE2
         {
             yield return new object[] { "A", new List<char>() { 'A' } };
             yield return new object[] { "AA", new List<char>() { 'A' } };
-            yield return new object[] { "ABA", new List<char>() { 'A', 'B' } };
+            yield return new object[] { "ABA", new List<char>() { 'A', 'B', 'A' } };
+            yield return new object[] { "AaAAABBBCCCc", new List<char>() { 'A', 'a', 'A', 'B', 'C', 'c' } };
+            yield return new object[] { "nnoorrtthhccooddeerrss", new List<char>() { 'n', 'o', 'r', 't', 'h', 'c', 'o', 'd', 'e', 'r', 's' } };
         }
 
         [Theory]
@@ -75,8 +77,8 @@ namespace Testing.BETests.BE2
         {
             yield return new object[] { new List<int>() { 1 }, new List<int>() { 1 } };
             yield return new object[] { new List<int>() { 1, 1 }, new List<int>() { 1 } };
-            yield return new object[] { new List<int>() { 1, 2, 3, 1 }, new List<int>() { 1, 2, 3 } };
-            yield return new object[] { new List<int>() { 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 1, 1 }, new List<int>() { 1, 2, 3 } };   
+            yield return new object[] { new List<int>() { 1, 2, 3, 1 }, new List<int>() { 1, 2, 3, 1 } };
+            yield return new object[] { new List<int>() { 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 1, 1 }, new List<int>() { 1, 2, 3, 1 } };   
         }
 
         [Theory]
