@@ -16,8 +16,6 @@ namespace Katas.BE.BE2
                 return list;
             }
 
-            //IEnumerable<Tin> distinctVals = values.Distinct();
-
             Tin prevVal = default(Tin);
 
             foreach (Tin value in values)
